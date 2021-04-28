@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'eclipse-wtp'
+    id 'war'
+}
+
+eclipse {
+    project {
+        name = "bitcamp-project-web"
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8' // javac -encodin UTF-8
+}
+
+war {
+  archiveBaseName = "web"
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+    testImplementation 'junit:junit:4.13'
+    implementation 'com.google.guava:guava:29.0-jre'
+}
